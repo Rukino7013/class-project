@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            background: #fff;
+            color: #000;
+        }
+        .dark-mode{
+            background: #26242e;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+    <button type="button" onclick="func()">click</button>
+    
+    <script>
+        function func(){
+            var setTheme = document.body;
+
+        setTheme.classList.toggle("dark-mode");
+        var theme;
+        
+        if(setTheme.classList.contains("dark-mode")){
+            console.log("dark-mode");
+            theme = "dark";
+        }else{
+            console.log("light mode");
+            theme = "light";
+        }
+
+        localStorage.setItem("pageTheme", JSON.stringify(theme));
+        }
+
+        let getTheme = JSON.parse(localStorage.getItem("pageTheme"));
+        if(getTheme === "dark"){
+            document.body.classList = "dark-mode"; 
+        }
+    </script>
+</body>
+</html>
