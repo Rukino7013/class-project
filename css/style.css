@@ -14,14 +14,18 @@ body{
 }
 
 header{
-    display: flex;
-    width: 100%;
-    justify-content: space-between;
-    align-items: center;
-    padding: 10px 40px;
     position: fixed;
     top: 0;
     left: 0;
+    width: 100%;
+}
+
+.header{
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 40px;
     background: #4c4a4b;
     transition: 0.5s;
     box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
@@ -163,8 +167,22 @@ header .navigation div a:hover .alt{
         font-size: 2em;
     }
 
+    header .logo{
+        font-size: 30px;
+    }
+
     .search-container input{
         width: 20em;
+        height: 30px;
+        padding: 5px 20px;
+    }
+
+    .search-container button{
+        height: 30px;
+    }
+
+    .navigation{
+        display: block;
     }
 }
 
@@ -174,13 +192,23 @@ header .navigation div a:hover .alt{
         text-shadow: 2px 2px 0px #000;
     }
 
+    header .logo{
+        font-size: 15px;
+    }
+
     .search-container input{
-        width: 250px;
-        height: 30px;
+        width: 200px;
+        height: 25px;
+        padding: 5px;
+    }
+
+    .search-container input::placeholder{
+        font-size: 10px;
+        letter-spacing: 1px;
     }
 
     .search-container button{
         width: 60px;
-        height: 30px;
+        height: 25px;
     }
 }

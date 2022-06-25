@@ -15,15 +15,17 @@
 </head>
 <body>
     <header>
-        <a href="#" class="logo">LOGO</a>
-        <a class="bars"></a>
-        <ul class="navigation">
-            <li><a href="#about">Categories</a></li>
-            <li><a href="#services">About</a></li>
-            <li><a href="#services">Support</a></li>
-            <li><a href="#services">contact</a></li>
-            <div><a href="login.php" class="login"><span class="alt">Login</span><i class="fas fa-sign-in-alt"></i></a></div>
-        </ul>
+        <div class="header">
+            <a href="#" class="logo">LOGO</a>
+            <a class="bars"></a>
+            <ul class="navigation">
+                <li><a href="#about">Categories</a></li>
+                <li><a href="#services">About</a></li>
+                <li><a href="#services">Support</a></li>
+                <li><a href="#services">contact</a></li>
+                <div><a href="login.php" class="login"><span class="alt">Login</span><i class="fas fa-sign-in-alt"></i></a></div>
+            </ul>
+        </div>
     </header>
 
     <section class="search-foods">
@@ -33,7 +35,7 @@
             <div class="search">
                 <form action="search.php" method="get">
                     <input type="text" placeholder="Search..." name="search-item">
-                    <button name="submit">Search</button>
+                    <button name="submit">Find</button>
                 </form>
             </div>
         </div>
