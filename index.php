@@ -1,6 +1,8 @@
 <?php 
     include('includes/db.php');
     session_start();
+
+    
 ?>
 <!DOCTYPE html>
 
@@ -14,19 +16,39 @@
     <script src="https://kit.fontawesome.com/a318b4f621.js" crossorigin="anonymous"></script>
 </head>
 <body>
+<div class="menu">
     <header>
-        <div class="header">
-            <a href="#" class="logo">LOGO</a>
-            <a class="bars"></a>
-            <ul class="navigation">
-                <li><a href="#about">Categories</a></li>
-                <li><a href="#services">About</a></li>
-                <li><a href="#services">Support</a></li>
-                <li><a href="#services">contact</a></li>
-                <div><a href="login.php" class="login"><span class="alt">Login</span><i class="fas fa-sign-in-alt"></i></a></div>
-            </ul>
+      <div class="header">
+        <div class="burger">
+            <span></span>
+            <span></span>
+            <span></span>
         </div>
+        <a href="#" class="logo">LOGO</a>
+      </div>
+
+      <div class="login-container">
+        <?php 
+            if(empty($_SESSION['username'])){
+                ?>
+                <a href="login.php" class="login-btn">Login</a>
+            <?php }else{
+                ?>
+                    <a href="profile-edit.php" class="user"><?php echo $_SESSION['username']; ?></a>
+                <?php
+            }
+        ?>
+      </div>
     </header>
+    <nav>
+      <ul>
+        <li><a href="/">Categories</a></li>
+        <li><a href="/">About</a></li>
+        <li><a href="/">Support</a></li>
+        <li><a href="/">Contact</a></li>
+      </ul>
+    </nav>
+  </div>
 
     <section class="search-foods">
         <div class="search-container">
@@ -42,15 +64,17 @@
     </section>
     
     <script>
-        window.addEventListener("scroll", function(){
-            const header = document.querySelector("header");
-            header.classList.toggle("sticky", window.scrollY > 0)
-        });
-        var bars = document.querySelector(".bars");
-        bars.addEventListener("click", () => {
-            bars.classList.toggle("active");
-            let nav = document.querySelector(".navigation");
-            nav.classList.toggle('active');
+        // window.addEventListener("scroll", function(){
+        //     const header = document.querySelector(".header");
+        //     header.classList.toggle("sticky", window.scrollY > 0)
+        // });
+
+        const burger = document.querySelector('.burger')
+        const nav = document.querySelector('nav')
+
+        burger.addEventListener('click', (e) => {
+        nav.classList.toggle('open')
+        burger.classList.toggle('open')
         })
     </script>
 </body>

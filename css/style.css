@@ -7,89 +7,117 @@
     font-family: 'Poppins', sans-serif;
 }
 
+:root{
+
+}
+
 body{
     height: 200vh;
     background: #323031;
     position: relative;
 }
+/* start styles */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;700&family=VT323&display=swap');
 
-header{
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
+body {
+  margin: 0;
+  background: #444;
+  font-family: "Poppins";
+}
+li, ul {
+  list-style-type: none;
+  padding: 0;
+}
+main {
+  padding: 140px 40px 40px;
+  color: #bbb;
 }
 
-.header{
-    position: relative;
+/* solution styles */
+
+.menu {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+}
+
+header{
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 10px 40px;
-    background: #4c4a4b;
-    transition: 0.5s;
-    box-shadow: 0px 5px 20px rgba(0,0,0,0.5);
+    width: 100%;
+    background: #333;
 }
 
-header.sticky{
-    padding: 5px 20px;
+.header {
+  display: flex;
+  align-items: center;
+  padding: 10px 20px;
+  box-sizing: border-box;
+  color: #eee;
 }
 
 header .logo{
+    margin-left: 20px;
     color: #fff;
-    font-size: 40px;
-    font-weight: 600;
+    font-size: 30px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+nav {
+  background: #222;
+  z-index: 0;
+  top: 0;
+  padding: 20px;
+  padding-top: 80px;
+  height: 100%;
+  box-sizing: border-box;
+  width: 200px;
+  left: -200px;
+  position: absolute;
+}
+nav a {
+  color: #fff;
+  display: block;
+  margin-bottom: 6px;
+  font-size: 1.2em;
+}
+.burger {
+  z-index: 1;
+  display: relative;
+  font-size: 1.2em;
+  cursor: pointer;
+}
+.burger span {
+  display: block;
+  width: 30px;
+  height: 2px;
+  background: #eee;
+  margin-bottom: 5px;
 }
 
-header .navigation{
-    display: flex;
+/* open state */
+
+nav.open {
+  left: 0;
+}
+.burger.open span:nth-child(1) {
+  transform: rotate(45deg) translateY(10px);
+}
+.burger.open span:nth-child(2) {
+  opacity: 0;
+  width: 0;
+}
+.burger.open span:nth-child(3) {
+  transform: rotate(-45deg) translateY(-10px);
 }
 
-header .navigation li{
-    list-style: none;
+/* transitions */
+nav {
+  transition: left ease-in 0.3s;
 }
-
-header .navigation li a{
-    display: inline-block;
-    width: 100px;
-    text-align: center;
-    height: 40px;
-    line-height: 40px;
-    color: #fff;
-}
-
-header .navigation li a:hover,
-header .navigation div a.login:hover{
-    color: #FCA311;
-}
-
-header .navigation div a.login{
-    border: 2px solid #fff;
-    border-radius: 50px;
-    padding: 0;
-    width: 40px;
-    height: 40px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #fff;
-}
-
-header .navigation div a .alt{
-    position: absolute;
-    top: 70px;
-    background-color: #fff;
-    color: #071013;
-    pointer-events: none;
-    display: block;
-    padding: 0px 10px;
-    border-radius: 10px;
-    transition: 0.5s;
-    opacity: 0;
-}
-
-header .navigation div a:hover .alt{
-    opacity: 1;
+.burger span {
+  transition: all ease-in 0.3s;
 }
 
 .search-foods{
@@ -152,6 +180,45 @@ header .navigation div a:hover .alt{
     background: #5f5d5e;
 }
 
+.login-container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 2%;
+}
+
+.login-container .login-btn,
+.login-container .user{
+    padding: 0px 10px;
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-transform: uppercase;
+    border: 2px solid #fff;
+    border-radius: 50px;
+    letter-spacing: 1px;
+}
+
+.login-container .login-btn:hover,
+.login-container .user:hover{
+    color: #fff;
+    background: #686868;
+    border: 2px solid #ffb700;
+}
+
+.login-container .user{
+    color: #fff;
+    padding: 2px 10px;
+    color: #fff;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
 @media (max-width:1200px) {
     .search-container h2{
         font-size: 4em;
@@ -171,6 +238,10 @@ header .navigation div a:hover .alt{
         font-size: 30px;
     }
 
+    .header.sticky{
+        padding: 10px 60px;
+    }
+
     .search-container input{
         width: 20em;
         height: 30px;
@@ -181,8 +252,47 @@ header .navigation div a:hover .alt{
         height: 30px;
     }
 
-    .navigation{
-        display: block;
+    .header{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .header .navigation{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        left: 0;
+        margin-top: 80px;
+        background: #4c4a4b;
+        height: 0px;
+    }
+
+    header .navigation.active{
+        height: 100%;
+    }
+
+    header .navigation li a{
+        text-align: left;
+    }
+
+    header .bars{
+        opacity: 1;
+        width: 50px;
+        display: flex;
+        height: 50px;
+        top: 0;
+        right: 0;
+        margin: 5px;
+        cursor: pointer;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .bars a{
+        font-size: 30px;
+        color: #fff;
     }
 }
 
@@ -192,8 +302,8 @@ header .navigation div a:hover .alt{
         text-shadow: 2px 2px 0px #000;
     }
 
-    header .logo{
-        font-size: 15px;
+    .bars .bar{
+        font-size: 20px;
     }
 
     .search-container input{

@@ -38,6 +38,7 @@
                     if(password_verify($password, $data->password)){
                         header('location: index.php');
                         $_SESSION['username'] = $data->username;
+                        $_SESSION['email'] = $data->email;
                         exit;
                     }else{
                         header("location: login.php?error=wrongPassword");
